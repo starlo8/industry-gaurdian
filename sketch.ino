@@ -7,7 +7,7 @@ const char* ssid = "Wokwi-GUEST";
 const char* password = "";
 
 // 🚀 UPDATED: Pointing directly to the live production endpoint (removed "-test")
-const char* n8n_webhook = "https://starlo.app.n8n.cloud/webhook-test/industrial-guardian";
+const char* n8n_webhook = "https://YOUR_ID/webhook-test/industrial-guardian";
 
 DHTesp dht;
 
