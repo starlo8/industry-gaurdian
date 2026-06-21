@@ -111,11 +111,4 @@ Every 4 seconds, if connected to `Wokwi-GUEST` virtual network infrastructure, t
 
 ---
 
-### Step 2: Add your code files to GitHub too!
-To make your repository complete, make sure you also add these two files right alongside your new README:
-1. **`sketch.ino`** – Paste your full ESP32 Arduino C++ code into this file.
-2. **`diagram.json`** – Paste the hardware layouts into this file.
 
-Once those three files are uploaded, your GitHub repository will look exactly like a professional IoT engineer's project showcase!
-
-```
