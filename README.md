@@ -1,3 +1,4 @@
+
 # 🚀 Industrial Guardian: ESP32 IoT Environmental Monitor with n8n Automation
 
 An intelligent Industrial IoT (IIoT) monitoring system that tracks environmental metrics using an ESP32 micro-controller, handles real-time edge computing safety cutoffs, and broadcasts data payloads to a cloud-based n8n automation engine.
@@ -62,3 +63,59 @@ To run this circuit inside the [Wokwi Simulator](https://wokwi.com), use the con
     [ "esp:GND.2", "gas:GND", "black", [ "v0" ] ]
   ]
 }
+
+```
+
+---
+
+## 🧠 Edge Matrix Rules & Actions
+
+The firmware constantly runs structural diagnostic checks at the edge level to protect localized hardware instantly without waiting for network latencies:
+
+| Priority | Condition Trigger | Assigned System State | Physical Hardware Action |
+| --- | --- | --- | --- |
+| **1 (Critical)** | Gas > Ambient + 300 | `EMERGENCY_GAS_SHUTDOWN` | **RED** + **GREEN** LEDs Active |
+| **2 (High)** | Temp $\ge$ 80.0°C | `EMERGENCY_THERMAL_SHUTDOWN` | **RED** LED Active |
+| **3 (Warning)** | Temp $\ge$ 68.0°C | `DUAL_COOLING_ACTIVE` | **YELLOW** + **BLUE** LEDs Active |
+| **4 (Caution)** | Temp $\ge$ 60.0°C | `LIGHT_FAN_COOLING_ACTIVE` | **YELLOW** LED Active |
+| **5 (Normal)** | Safe Baselines | `SYSTEM_NORMAL` | All indicators clear |
+
+---
+
+## 📡 Cloud JSON Data Payload Structure
+
+Every 4 seconds, if connected to `Wokwi-GUEST` virtual network infrastructure, the ESP32 pushes a structured JSON telemetry object down the pipeline via an HTTP POST Request:
+
+```json
+{
+  "temperature": 62.5,
+  "vibration": 1420,
+  "gas_raw": 128,
+  "state": "LIGHT_FAN_COOLING_ACTIVE"
+}
+
+```
+
+---
+
+## 🚀 How to Set Up & Run
+
+1. Clone this repository to your computer or copy the code files.
+2. Open a workspace in **[Wokwi Simulator](https://wokwi.com)**.
+3. Paste the contents of `sketch.ino` into your main file, and paste the hardware JSON config above into the `diagram.json` tab.
+4. Update the `n8n_webhook` string constant at the top of your code with your live n8n instance link.
+5. In n8n, turn your automation workflow switch to **Active**.
+6. Fire up the Wokwi Simulation, tweak the interactive sensor sliders (e.g. to `62°C`), and watch the automation cascade down your pipeline!
+
+```
+
+---
+
+### Step 2: Add your code files to GitHub too!
+To make your repository complete, make sure you also add these two files right alongside your new README:
+1. **`sketch.ino`** – Paste your full ESP32 Arduino C++ code into this file.
+2. **`diagram.json`** – Paste the hardware layouts into this file.
+
+Once those three files are uploaded, your GitHub repository will look exactly like a professional IoT engineer's project showcase!
+
+```
