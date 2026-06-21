@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "author": "Industrial Guardian AI Core",
+  "editor": "wokwi",
+  
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 288, "left": 254.44, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht", "top": -134.1, "left": -207, "attrs": {} },
+    { "type": "wokwi-slide-potentiometer", "id": "pot", "top": -139, "left": 325.4, "attrs": {} },
+    { "type": "wokwi-gas-sensor", "id": "gas", "top": -237.3, "left": 16.6, "attrs": {} },
+    { "type": "wokwi-led", "id": "led_red", "top": 240, "left": -90, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led_yellow",
+      "top": 240,
+      "left": -40,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_blue",
+      "top": 240,
+      "left": 10,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_green",
+      "top": 240,
+      "left": 60,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 300,
+      "left": -110,
+      "attrs": { "value": "220" }
+    },
+    { "type": "wokwi-resistor", "id": "r2", "top": 300, "left": -60, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": 300, "left": -10, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r4", "top": 300, "left": 40, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "esp:GND.1", "dht:GND", "black", [ "v-20", "h-40" ] ],
+    [ "esp:3V3", "dht:VCC", "red", [ "v-40", "h-60" ] ],
+    [ "esp:15", "dht:SDA", "blue", [ "v-60", "h-20" ] ],
+    [ "esp:GND.2", "pot:GND", "black", [ "v-20", "h40" ] ],
+    [ "esp:3V3", "pot:VCC", "red", [ "v-40", "h60" ] ],
+    [ "esp:34", "pot:SIG", "green", [ "v-80", "h40" ] ],
+    [ "esp:GND.1", "gas:GND", "black", [ "v-20", "h10" ] ],
+    [ "esp:5V", "gas:VCC", "red", [ "v-30", "h20" ] ],
+    [ "esp:32", "gas:AO", "orange", [ "v-50", "h10" ] ],
+    [ "esp:13", "led_red:A", "red", [ "v20", "h-20" ] ],
+    [ "led_red:C", "r1:1", "black", [ "v0" ] ],
+    [ "r1:2", "esp:GND.2", "black", [ "v20", "h100" ] ],
+    [ "esp:12", "led_yellow:A", "yellow", [ "v20", "h-20" ] ],
+    [ "led_yellow:C", "r2:1", "black", [ "v0" ] ],
+    [ "r2:2", "esp:GND.2", "black", [ "v20", "h80" ] ],
+    [ "esp:14", "led_blue:A", "blue", [ "v20", "h-20" ] ],
+    [ "led_blue:C", "r3:1", "black", [ "v0" ] ],
+    [ "r3:2", "esp:GND.2", "black", [ "v20", "h60" ] ],
+    [ "esp:27", "led_green:A", "green", [ "v20", "h-20" ] ],
+    [ "led_green:C", "r4:1", "black", [ "v0" ] ],
+    [ "r4:2", "esp:GND.2", "black", [ "v20", "h40" ] ]
+  ],
+  "dependencies": {}
+  
+}
