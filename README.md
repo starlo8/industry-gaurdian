@@ -1,5 +1,5 @@
 
-# 🚀 Industrial Guardian: ESP32 IoT Environmental Monitor with n8n Automation
+# 🚀 Industrial Guardian: ESP32 IoT Factory Monitor with n8n Automation
 
 An intelligent Industrial IoT (IIoT) monitoring system that tracks environmental metrics using an ESP32 micro-controller, handles real-time edge computing safety cutoffs, and broadcasts data payloads to a cloud-based n8n automation engine.
 
